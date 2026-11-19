@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
   console.log(req.method, req.url);
 
   if (req.method === "GET" && req.url === "/") {
-    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+    res.writeHead(200, { "Content-Type": "application/json; charset=utf-8" });
     res.end("<h1>Hi</p>");
     
     return;
