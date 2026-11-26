@@ -79,6 +79,8 @@ export function averageOrder(orders, menu) {
   return Math.round((grandTotal / orders.length) * 100) / 100;
 }
 
+
+
 // ───────────── Stretch (optional) ─────────────
 
 // Task 9 — return the NAME of the item with the highest total quantity sold.
@@ -90,4 +92,15 @@ export function bestSeller(orders, menu) {
 // { drink: ["Thai Iced Tea", ...], food: [...], dessert: [...] }
 export function namesByCategory(menu) {
   // TODO
+}
+export function cheapDrinks(menu, maxPrice) {
+  return menu
+    .filter(
+      (item) =>
+        item.category === "drink" &&
+        item.available &&
+        item.price <= maxPrice
+    )
+    .sort((a, b) => a.price - b.price)
+    .map((item) => `${item.name} — ${item.price}`);
 }

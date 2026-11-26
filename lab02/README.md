@@ -18,12 +18,12 @@ npm start        # Part D — the daily report
 
 ## My own function (Part D)
 
-_Name of your function, what it returns, and which array methods it uses._
+_name cheapDrinks(menu, maxPrice) use array methods filter , sort , map return list line of string that pricelower than maxPrice_
 
 ## What I learned today
 
-_Write 2–3 sentences in your own words: when would you use map, filter, find and reduce?_
+_i use map() when i want to view item in array and filter() went i want to select item that same with condition and i use find() when i want to get frist item in same condition , reduce() when i want to merch it all in to 1value_
 
 ## AI-use statement
 
-_Did you use an AI tool in this lab? If yes, which one and for what. If no, write "No AI tools used."_
+_i use gemini to  teach me about some code that i cant understand and genarate some code and review by me before put in this file_
