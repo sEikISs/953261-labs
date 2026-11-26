@@ -38,6 +38,8 @@ export function availableIn(menu, category) {
 //   "Butterfly Pea Soda — 50 THB (sold out)"     ← when available is false
 // Hint: start with  const { name, price, available } = item;
 export function menuLine(item) {
+  const { name, price, available } = item;
+  return available ? `${name} — ${price} THB` : `${name} — ${price} THB (sold out)`;
   // TODO
 }
 
@@ -46,15 +48,16 @@ export function menuLine(item) {
 // The original item must not change.
 // withDiscount({ ..., price: 45 }, 10) → { ..., price: 41 }   (45 × 0.9 = 40.5 → 41)
 export function withDiscount(item, percent) {
-  // TODO
+  const disprice = Math.round(item.price * (1- percent/100))
+  return { ...item, price: disprice};
 }
 
-// Task 7 — reduce + find
-// Return the total price of one order in baht.
-// Each line costs  (price of that menu item) × qty.
-// orderTotal(orders[0], menu) → 160   (2 × 45 + 1 × 70)
 export function orderTotal(order, menu) {
-  // TODO
+  return order.items.reduce((total, line) => {
+    const found = menu.find((item) => item.id === line.id);
+    const price = found ? found.price : 0;
+    return total + price * line.qty;
+  }, 0);
 }
 
 // Task 8 — map + reduce   (this is quiz Q10 again!)
