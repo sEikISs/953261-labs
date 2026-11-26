@@ -54,8 +54,8 @@ export function withDiscount(item, percent) {
 
 export function orderTotal(order, menu) {
   return order.items.reduce((total, line) => {
-    const found = menu.find((item) => item.id === line.id);
-    const price = found ? found.price : 0;
+    const item = menu.find((m) => m.id === line.menuId);
+    const price = item ? item.price : 0;
     return total + price * line.qty;
   }, 0);
 }
@@ -64,7 +64,18 @@ export function orderTotal(order, menu) {
 // Return the average order total, rounded to 2 decimal places.
 // Return 0 when there are no orders.
 export function averageOrder(orders, menu) {
-  // TODO
+  if (!orders.length) return 0;
+
+  const grandTotal = orders.reduce((sum, order) => {
+    const orderSum = order.items.reduce((lineSum, line) => {
+      const item = menu.find((m) => m.id === line.menuId);
+      const price = item ? item.price : 0;
+      return lineSum + price * line.qty;
+    }, 0);
+    return sum + orderSum;
+  }, 0);
+
+  return Math.round((grandTotal / orders.length) * 100) / 100;
 }
 
 // ───────────── Stretch (optional) ─────────────
