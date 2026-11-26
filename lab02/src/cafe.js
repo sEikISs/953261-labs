@@ -53,7 +53,8 @@ export function withDiscount(item, percent) {
 }
 
 export function orderTotal(order, menu) {
-  return order.items.reduce((total, line) => {
+  const items = Array.isArray(order?.items) ? order.items : [];
+  return items.reduce((total, line) => {
     const item = menu.find((m) => m.id === line.menuId);
     const price = item ? item.price : 0;
     return total + price * line.qty;

@@ -9,7 +9,7 @@ menu.forEach((item) => console.log(menuLine(item)));
 
 console.log("\n=== Today's orders ===");
 // TODO (Part D): print one line per order, e.g.  "A001 Mint — 160 THB"
-
+menu.forEach((orders, menu) => console.log(orderTotal(orders, menu)));
 console.log("\n=== Summary ===");
 // TODO (Part D): print the number of orders, the total sales and the average order.
 
