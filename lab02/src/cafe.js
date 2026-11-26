@@ -7,14 +7,13 @@
 // Task 1 — map
 // Return an array of item names, in menu order.
 // menuNames(menu) → ["Thai Iced Tea", "Americano", ...]
-export function menuNames(menu) {
-  // TODO
+export function menuNames(items = menu) {
+  return items.map((item) => item.name);
 }
-
 // Task 2 — filter
 // Return only the items whose `available` is true.
 export function availableItems(menu) {
-  // TODO
+  return menu.filter((i) => i.available);
 }
 
 // Task 3 — find
